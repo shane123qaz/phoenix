@@ -1,11 +1,22 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet} from "react-native";
+import { Header } from "./components/Header";
+import { blue, white } from "./config/color";
+import { SIZE } from "./config/size";
+import { List } from "./components/List";
 
-class Home extends React.Component {
-  render() {
+const gameList = ["phoenix", "reboot"];
+
+export class Home extends React.Component {
+  public render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Home Page</Text>
+        <View style={styles.header}>
+          <Header title="Game List"/>
+        </View>
+        <View style={styles.content}>
+          <List data={gameList}/>
+        </View>
       </View>
     );
   }
@@ -13,14 +24,21 @@ class Home extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    display: "flex",
+    flexDirection: "column",
+    height: SIZE.MAX_HEIGHT,
   },
-  title: {
-    color: "#000",
-    fontSize: 20,
+  header: {
+    height: "10%",
+    backgroundColor: blue,
+    borderWidth: 1,
+    borderColor: white,
+    borderRadius: 5,
+    paddingLeft: 20,
+  },
+  content: {
+    marginTop: 10,
+    paddingLeft: 20,
   }
 });
 
-export default Home;
