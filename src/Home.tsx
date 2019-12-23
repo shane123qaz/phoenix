@@ -4,18 +4,25 @@ import { Header } from "./components/Header";
 import { blue, white } from "./config/color";
 import { SIZE } from "./config/size";
 import { List } from "./components/List";
+import { INavigation } from "./types";
 
-const gameList = ["phoenix", "reboot"];
+type Props = INavigation;
 
-export class Home extends React.Component {
+class Home extends React.Component<Props> {
   public render() {
+
+    const list = [
+      {name: "flight", handlePress: () => {this.props.navigation.navigate("Flight")}},
+      {name: "reboot", handlePress: () => {}},
+    ];
+
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <Header title="Game List"/>
         </View>
         <View style={styles.content}>
-          <List data={gameList}/>
+          <List data={list}/>
         </View>
       </View>
     );
@@ -42,3 +49,4 @@ const styles = StyleSheet.create({
   }
 });
 
+export default Home;
