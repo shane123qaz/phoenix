@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet} from "react-native";
 import { Header } from "./components/Header";
-import { blue, white } from "./config/color";
+import { white, red } from "./config/color";
 import { SIZE } from "./config/size";
 import { List } from "./components/List";
 import { INavigation } from "./types";
@@ -9,8 +9,11 @@ import { INavigation } from "./types";
 type Props = INavigation;
 
 class Home extends React.Component<Props> {
-  public render() {
+  static navigationOptions = {
+    title: 'Home',
+  };
 
+  public render() {
     const list = [
       {name: "flight", handlePress: () => {this.props.navigation.navigate("Flight")}},
       {name: "reboot", handlePress: () => {}},
@@ -37,7 +40,7 @@ const styles = StyleSheet.create({
   },
   header: {
     height: "10%",
-    backgroundColor: blue,
+    backgroundColor: red,
     borderWidth: 1,
     borderColor: white,
     borderRadius: 5,

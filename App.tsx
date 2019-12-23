@@ -2,6 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Home from "./src/Home";
 import Flight from './src/Flight';
+import { white, blue } from './src/config/color';
 
 const AppNavigator = createStackNavigator(
   {
@@ -14,6 +15,15 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: "Home",
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: blue,
+      },
+      headerTintColor: white,
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+    }
   }
 );
 
