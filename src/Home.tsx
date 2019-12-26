@@ -15,8 +15,8 @@ class Home extends React.Component<Props> {
 
   public render() {
     const list = [
-      {name: "flight", handlePress: () => {this.props.navigation.navigate("Flight")}},
-      {name: "reboot", handlePress: () => {}},
+      {id: "1", name: "flight", handlePress: () => {this.props.navigation.navigate("Flight")}},
+      {id: "2", name: "reboot", handlePress: () => {}},
     ];
 
     return (

@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, Text, StyleSheet, View } from "react-native";
 
 interface IItem {
+  id: string;
   name: string;
   handlePress: () => void;
 }
@@ -11,15 +12,13 @@ interface IList {
 }
 
 export class List extends React.Component<IList> {
-  private renderItem = ({item, index} : {item: IItem, index: number}) => {
-    return (
-      <View style={styles.container} key={index}>
+  private renderItem = ({item}: {item: IItem}) => (
+      <View style={styles.container}>
         <Text style={styles.content} onPress={item.handlePress}>
           * {item.name}
         </Text>
       </View>
     );
-  };
 
   public render() {
     const {data} = this.props;
@@ -27,6 +26,7 @@ export class List extends React.Component<IList> {
       <FlatList
         data={data}
         renderItem={this.renderItem}
+        keyExtractor={item => item.id}
       />
     );
   }
