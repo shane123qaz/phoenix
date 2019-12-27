@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "expo": "^35.0.0",
@@ -25,7 +26,13 @@
     "@types/react": "^16.8.23",
     "@types/react-native": "^0.57.65",
     "babel-preset-expo": "^7.1.0",
+    "cz-conventional-changelog": "^3.0.2",
     "typescript": "^3.6.3"
   },
-  "private": true
+  "private": true,
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
