@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { BarChart } from "react-native-chart-kit";
+import { BarChart, LineChart } from "react-native-chart-kit";
 import { SIZE } from "../../src/config/size"
 import { blue, lightGrey } from "../../src/config/color"
 
@@ -13,11 +13,18 @@ backgroundColor: '#022173',
   barPercentage: 0.5
 };
 
-const barChartData = {
+const chartData = {
   labels: ["January", "February", "March", "April", "May", "June"],
   datasets: [
     {
-      data: [20, 45, 28, 80, 99, 43]
+      data: [
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100
+          ]
     }
   ]
 };
@@ -31,10 +38,20 @@ class ChartKitCharts extends React.Component {
   const width = SIZE.MAX_WIDTH - 20;
     return (
     <ScrollView>
+      <View style={styles.title}><Text style={styles.text}>Line Chart</Text></View>
+      <LineChart
+        style={styles.graphStyle}
+        data={chartData}
+        width={width}
+        height={260}
+        yAxisLabel={'$'}
+        chartConfig={chartConfig}
+        bezier
+      />
       <View style={styles.title}><Text style={styles.text}>Bar Chart</Text></View>
       <BarChart
         style={styles.graphStyle}
-        data={barChartData}
+        data={chartData}
         width={width}
         height={260}
         yAxisLabel={'$'}
