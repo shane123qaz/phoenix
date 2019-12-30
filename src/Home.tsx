@@ -19,6 +19,10 @@ class Home extends React.Component<Props> {
       {id: "2", name: "reboot", handlePress: () => {}},
     ];
 
+    const chartList = [
+      {id: "1", name: "chartKitCharts", handlePress: () => {this.props.navigation.navigate("ChartKitCharts")}}
+    ];
+
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -26,6 +30,12 @@ class Home extends React.Component<Props> {
         </View>
         <View style={styles.content}>
           <List data={list}/>
+        </View>
+        <View style={styles.header}>
+          <Header title="Chart List"/>
+        </View>
+        <View style={styles.content}>
+          <List data={chartList}/>
         </View>
       </View>
     );
