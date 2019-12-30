@@ -54,6 +54,11 @@ const chartData = {
   legend: ["Rainy Days", "Sunny Days"]
 };
 
+const progressChartData = {
+  labels: ["Swim", "Bike", "Run"],
+  data: [0.4, 0.6, 0.8]
+}
+
 class ChartKitCharts extends React.Component {
   static navigationOptions = {
     title: 'Bar Chart'
@@ -81,6 +86,15 @@ class ChartKitCharts extends React.Component {
           yAxisLabel={'$'}
           chartConfig={chartConfig}
           verticalLabelRotation={20}
+        />
+        <View style={styles.title}><Text style={styles.text}>Progress Chart</Text></View>
+        <ProgressChart
+          style={styles.graphStyle}
+          data={progressChartData}
+          width={width}
+          height={260}
+          chartConfig={chartConfig}
+          hideLegend={false}
         />
       </ScrollView>
     );
