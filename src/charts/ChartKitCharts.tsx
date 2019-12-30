@@ -1,16 +1,26 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { BarChart, LineChart } from "react-native-chart-kit";
+import { BarChart, LineChart, ProgressChart } from "react-native-chart-kit";
 import { SIZE } from "../../src/config/size"
 import { blue, lightGrey } from "../../src/config/color"
 
+const width = SIZE.MAX_WIDTH - 20;
 const chartConfig = {
-backgroundColor: '#022173',
+  backgroundColor: '#022173',
   backgroundGradientFrom: '#022173',
   backgroundGradientTo: '#1b3fa0',
   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-  strokeWidth: 4,
-  barPercentage: 0.5
+  strokeWidth: 10,
+  barPercentage: 0.5,
+  barRadius: 20,
+  propsForBackgroundLines: {
+    x1: 0,
+    y1: 100,
+    x2: width,
+    y2: 100,
+    stroke: "red",
+    strokeWidth: 2
+  }
 };
 
 const chartData = {
@@ -18,15 +28,30 @@ const chartData = {
   datasets: [
     {
       data: [
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100
-          ]
+        Math.random() * 100,
+        Math.random() * 100,
+        Math.random() * 100,
+        Math.random() * 100,
+        Math.random() * 100,
+        Math.random() * 100
+      ],
+      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+      strokeWidth: 2
+    },
+    {
+      data: [
+        Math.random() * 100,
+        Math.random() * 100,
+        Math.random() * 100,
+        Math.random() * 100,
+        Math.random() * 100,
+        Math.random() * 100
+      ],
+      color: (opacity = 1) => `rgba(0, 255, 0, ${opacity})`,
+      strokeWidth: 2
     }
-  ]
+  ],
+  legend: ["Rainy Days", "Sunny Days"]
 };
 
 class ChartKitCharts extends React.Component {
@@ -35,30 +60,29 @@ class ChartKitCharts extends React.Component {
   };
 
   public render() {
-  const width = SIZE.MAX_WIDTH - 20;
     return (
-    <ScrollView>
-      <View style={styles.title}><Text style={styles.text}>Line Chart</Text></View>
-      <LineChart
-        style={styles.graphStyle}
-        data={chartData}
-        width={width}
-        height={260}
-        yAxisLabel={'$'}
-        chartConfig={chartConfig}
-        bezier
-      />
-      <View style={styles.title}><Text style={styles.text}>Bar Chart</Text></View>
-      <BarChart
-        style={styles.graphStyle}
-        data={chartData}
-        width={width}
-        height={260}
-        yAxisLabel={'$'}
-        chartConfig={chartConfig}
-        verticalLabelRotation={20}
-      />
-    </ScrollView>
+      <ScrollView>
+        <View style={styles.title}><Text style={styles.text}>Line Chart</Text></View>
+        <LineChart
+          style={styles.graphStyle}
+          data={chartData}
+          width={width}
+          height={260}
+          yAxisLabel={'$'}
+          chartConfig={chartConfig}
+          bezier
+        />
+        <View style={styles.title}><Text style={styles.text}>Bar Chart</Text></View>
+        <BarChart
+          style={styles.graphStyle}
+          data={chartData}
+          width={width}
+          height={260}
+          yAxisLabel={'$'}
+          chartConfig={chartConfig}
+          verticalLabelRotation={20}
+        />
+      </ScrollView>
     );
   }
 }
