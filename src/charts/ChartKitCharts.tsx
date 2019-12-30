@@ -1,6 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { BarChart, LineChart, PieChart, ProgressChart } from "react-native-chart-kit";
+import {
+  BarChart,
+  LineChart,
+  PieChart,
+  ProgressChart,
+  StackedBarChart
+} from "react-native-chart-kit";
 import { SIZE } from "../../src/config/size"
 import { blue, lightGrey } from "../../src/config/color"
 
@@ -11,7 +17,7 @@ const chartConfig = {
   backgroundGradientTo: '#1b3fa0',
   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
   strokeWidth: 10,
-  barPercentage: 0.5,
+  barPercentage: 0.8,
   barRadius: 20,
   propsForBackgroundLines: {
     x1: 0,
@@ -97,6 +103,13 @@ const pieChartData = [
   }
 ];
 
+const stackedBarData = {
+  labels: ["Test1", "Test2", "Test3"],
+  legend: ["L1", "L2", "L3"],
+  data: [[60, 20, 60], [30, 30, 60], [40, 45, 50]],
+  barColors: ["#919ec9", "#6074b4", "#384fa3"]
+};
+
 class ChartKitCharts extends React.Component {
   static navigationOptions = {
     title: 'Bar Chart'
@@ -146,6 +159,14 @@ class ChartKitCharts extends React.Component {
           paddingLeft={15}
           absolute
           bgColor="#022173"
+        />
+        <View style={styles.title}><Text style={styles.text}>Stacked Bar Chart</Text></View>
+        <StackedBarChart
+          style={styles.graphStyle}
+          data={stackedBarData}
+          width={width}
+          height={260}
+          chartConfig={chartConfig}
         />
       </ScrollView>
     );
