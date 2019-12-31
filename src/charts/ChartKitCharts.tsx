@@ -7,8 +7,8 @@ import {
   ProgressChart,
   StackedBarChart
 } from "react-native-chart-kit";
-import { SIZE } from "../../src/config/size"
-import { blue, lightGrey } from "../../src/config/color"
+import { SIZE } from "src/config/size"
+import { blue, lightGrey } from "src/config/color"
 
 const width = SIZE.MAX_WIDTH - 20;
 const chartConfig = {
