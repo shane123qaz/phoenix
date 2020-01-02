@@ -128,6 +128,9 @@ class ChartKitCharts extends React.Component {
           chartConfig={chartConfig}
           fromZero={true}
           bezier
+          decorator={() => 
+            (<View><Text style={styles.extraInfo}>average line</Text></View>)
+          }
         />
         <View style={styles.title}><Text style={styles.text}>Bar Chart</Text></View>
         <BarChart
@@ -191,6 +194,12 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20
+  },
+  extraInfo: {
+    position: "relative",
+    top: 140,
+    left: 10,
+    color: "red"
   }
 });
 
