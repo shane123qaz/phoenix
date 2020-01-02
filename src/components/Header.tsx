@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { white } from "src/config/color";
+import { white } from "../config/color";
 
 interface IHeader {
   title: string;

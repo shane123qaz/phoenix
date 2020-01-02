@@ -7,8 +7,7 @@ import {
   ProgressChart,
   StackedBarChart
 } from "react-native-chart-kit";
-import { SIZE } from "src/config/size"
-import { blue, lightGrey } from "src/config/color"
+import { SIZE } from "../config/size"
 
 const width = SIZE.MAX_WIDTH - 20;
 const chartConfig = {
@@ -16,9 +15,10 @@ const chartConfig = {
   backgroundGradientFrom: '#022173',
   backgroundGradientTo: '#1b3fa0',
   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+  labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
   strokeWidth: 10,
   barPercentage: 0.8,
-  barRadius: 20,
+  barRadius: 0.8,
   propsForBackgroundLines: {
     x1: 0,
     y1: 100,
@@ -126,6 +126,7 @@ class ChartKitCharts extends React.Component {
           height={260}
           yAxisLabel={'$'}
           chartConfig={chartConfig}
+          fromZero={true}
           bezier
         />
         <View style={styles.title}><Text style={styles.text}>Bar Chart</Text></View>
@@ -135,11 +136,13 @@ class ChartKitCharts extends React.Component {
           width={width}
           height={260}
           yAxisLabel={'$'}
+          yAxisSuffix={''}
           chartConfig={chartConfig}
           verticalLabelRotation={20}
         />
         <View style={styles.title}><Text style={styles.text}>Progress Chart</Text></View>
         <ProgressChart
+          // @ts-ignore
           style={styles.graphStyle}
           data={progressChartData}
           width={width}
@@ -149,6 +152,7 @@ class ChartKitCharts extends React.Component {
         />
         <View style={styles.title}><Text style={styles.text}>Pie Chart</Text></View>
         <PieChart
+          // @ts-ignore
           style={styles.graphStyle}
           data={pieChartData}
           width={width}
@@ -156,9 +160,8 @@ class ChartKitCharts extends React.Component {
           chartConfig={chartConfig}
           accessor="population"
           backgroundColor="#022173"
-          paddingLeft={15}
+          paddingLeft={"15"}
           absolute
-          bgColor="#022173"
         />
         <View style={styles.title}><Text style={styles.text}>Stacked Bar Chart</Text></View>
         <StackedBarChart
@@ -167,6 +170,7 @@ class ChartKitCharts extends React.Component {
           width={width}
           height={260}
           chartConfig={chartConfig}
+          hideLegend={false}
         />
       </ScrollView>
     );
@@ -176,7 +180,7 @@ class ChartKitCharts extends React.Component {
 const styles = StyleSheet.create({
   graphStyle: {
     marginVertical: 8,
-    borderRadius: 16,
+    borderRadius: 20,
     marginLeft: 10,
     marginHorizontal: 10
   },

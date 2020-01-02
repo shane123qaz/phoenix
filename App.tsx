@@ -1,9 +1,16 @@
+/**
+ * @format
+ */
+
+import {AppRegistry} from 'react-native';
+import {name as appName} from './app.json';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Home from "./src/Home";
 import Flight from './src/Flight';
 import ChartKitCharts from './src/charts/ChartKitCharts';
 import { white, blue } from './src/config/color';
+
 
 const AppNavigator = createStackNavigator(
   {
@@ -31,4 +38,5 @@ const AppNavigator = createStackNavigator(
   }
 );
 
-export default createAppContainer(AppNavigator);
+// @ts-ignore
+AppRegistry.registerComponent(appName, () => createAppContainer(AppNavigator));

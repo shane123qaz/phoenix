@@ -1,10 +1,10 @@
 import React from "react";
 import { View, StyleSheet} from "react-native";
-import { Header } from "src/components/Header";
-import { white, red } from "src/config/color";
-import { SIZE } from "src/config/size";
-import { List } from "src/components/List";
-import { INavigation } from "src/types";
+import { Header } from "./components/Header";
+import { white, red } from "./config/color";
+import { SIZE } from "./config/size";
+import { List } from "./components/List";
+import { INavigation } from "./types";
 
 type Props = INavigation;
 
