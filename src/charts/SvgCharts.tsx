@@ -1,7 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-// @ts-ignore
-import { BarChart, LineChart, ProgressCircle, XAxis, YAxis } from "react-native-svg-charts";
+import {
+  BarChart,
+  LineChart,
+  PieChart,
+  ProgressCircle,
+  XAxis,
+  YAxis
+  // @ts-ignore
+} from "react-native-svg-charts";
 import { Circle, Line, Text as SVGText } from "react-native-svg";
 import { SIZE } from "../config/size";
 import { blue, lightPurpe } from "../config/color";
@@ -43,6 +50,34 @@ const barData = [
 ]
 
 const progressChartData = 90;
+
+const pieChartData = [
+  {
+    key: 1,
+    amount: 50,
+    svg: { fill: '#600080' },
+  },
+  {
+    key: 2,
+    amount: 50,
+    svg: { fill: '#9900cc' }
+  },
+  {
+    key: 3,
+    amount: 40,
+    svg: { fill: '#c61aff' }
+  },
+  {
+    key: 4,
+    amount: 95,
+    svg: { fill: '#d966ff' }
+  },
+  {
+    key: 5,
+    amount: 35,
+    svg: { fill: '#ecb3ff' }
+  }
+]
 
 class SvgCharts extends React.Component {
   static navigationOptions = {
@@ -93,6 +128,25 @@ class SvgCharts extends React.Component {
           </SVGText>
         ))
       ));
+
+    const PieChartLabels = ({ slices, height, width }: any) =>
+      slices.map(({ pieCentroid, data }: any, index: number) => (
+        <SVGText
+          key={index}
+          x={pieCentroid[0]}
+          y={pieCentroid[1]}
+          fill={'white'}
+          textAnchor={'middle'}
+          alignmentBaseline={'middle'}
+          fontSize={24}
+          stroke={'black'}
+          strokeWidth={0.2}
+        >
+          {data.amount}
+        </SVGText>
+      )
+    );
+
 
     return (
       <ScrollView>
@@ -158,7 +212,7 @@ class SvgCharts extends React.Component {
         <View style={styles.graphStyle}>
           <ProgressCircle
             style={{ height: 260, flex: 1, alignSelf: "center" }}
-            progress={progressChartData/100}
+            progress={progressChartData / 100}
             progressColor={lightPurpe}
             startAngle={-Math.PI * 0}
             endAngle={2 * Math.PI * 1}
@@ -175,6 +229,18 @@ class SvgCharts extends React.Component {
               {progressChartData}
             </SVGText>
           </ProgressCircle>
+        </View>
+        <View style={styles.title}><Text style={styles.text}>Pie Chart</Text></View>
+        <View style={styles.graphStyle}>
+          <PieChart
+            style={{ height: 260, flex: 1, alignSelf: "center" }}
+            valueAccessor={({ item }: any) => item.amount}
+            data={pieChartData}
+            spacing={0}
+            outerRadius={'95%'}
+          >
+            <PieChartLabels />
+          </PieChart>
         </View>
       </ScrollView>
     );
