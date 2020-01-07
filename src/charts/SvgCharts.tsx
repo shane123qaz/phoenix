@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 // @ts-ignore
-import { BarChart, LineChart, XAxis, YAxis } from "react-native-svg-charts";
+import { BarChart, LineChart, ProgressCircle, XAxis, YAxis } from "react-native-svg-charts";
 import { Circle, Line, Text as SVGText } from "react-native-svg";
 import { SIZE } from "../config/size";
 import { blue, lightPurpe } from "../config/color";
@@ -42,6 +42,8 @@ const barData = [
   }
 ]
 
+const progressChartData = 90;
+
 class SvgCharts extends React.Component {
   static navigationOptions = {
     title: 'SVG Charts'
@@ -80,7 +82,7 @@ class SvgCharts extends React.Component {
         dataset.data.map((value: number, index: number) => (
           <SVGText
             key={index}
-            x={i%2 === 0 ? x(index) + bandwidth/4 : x(index) + bandwidth*3/4}
+            x={i % 2 === 0 ? x(index) + bandwidth / 4 : x(index) + bandwidth * 3 / 4}
             y={value < CUT_OFF ? y(value) - 10 : y(value) + 10}
             fontSize={14}
             fill={'white'}
@@ -140,7 +142,7 @@ class SvgCharts extends React.Component {
               spacingInner={0.2}
               spacingOuter={0}
               gridMin={0}
-            >          
+            >
               <Labels />
             </BarChart>
             <XAxis
@@ -151,6 +153,28 @@ class SvgCharts extends React.Component {
               svg={axesSvg}
             />
           </View>
+        </View>
+        <View style={styles.title}><Text style={styles.text}>Progress Chart</Text></View>
+        <View style={styles.graphStyle}>
+          <ProgressCircle
+            style={{ height: 260, flex: 1, alignSelf: "center" }}
+            progress={progressChartData/100}
+            progressColor={lightPurpe}
+            startAngle={-Math.PI * 0}
+            endAngle={2 * Math.PI * 1}
+          >
+            <SVGText
+              key={"progress-key"}
+              x={0}
+              y={0}
+              fontSize={20}
+              fill={'white'}
+              alignmentBaseline={'middle'}
+              textAnchor={'middle'}
+            >
+              {progressChartData}
+            </SVGText>
+          </ProgressCircle>
         </View>
       </ScrollView>
     );
