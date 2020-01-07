@@ -9,6 +9,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Home from "./src/Home";
 import Flight from './src/Flight';
 import ChartKitCharts from './src/charts/ChartKitCharts';
+import SvgCharts from './src/charts/SvgCharts';
 import { white, blue } from './src/config/color';
 
 
@@ -22,6 +23,9 @@ const AppNavigator = createStackNavigator(
     },
     ChartKitCharts: {
       screen: ChartKitCharts
+    },
+    SvgCharts: {
+      screen: SvgCharts
     }
   },
   {
