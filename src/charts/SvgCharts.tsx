@@ -5,13 +5,16 @@ import {
   LineChart,
   PieChart,
   ProgressCircle,
+  StackedAreaChart,
   XAxis,
   YAxis
-  // @ts-ignore
 } from "react-native-svg-charts";
 import { Circle, Line, Text as SVGText } from "react-native-svg";
 import { SIZE } from "../config/size";
 import { blue, lightPurpe } from "../config/color";
+import * as shape from 'd3-shape';
+
+type KeyType = 'apples' | 'bananas' | 'cherries' | 'dates'
 
 const width = SIZE.MAX_WIDTH - 20;
 const lineChartData = [
@@ -79,6 +82,33 @@ const pieChartData = [
   }
 ]
 
+const stackedBarData = [
+  {
+    apples: 3840,
+    bananas: 1920,
+    cherries: 960,
+    dates: 400,
+  },
+  {
+    apples: 1600,
+    bananas: 1440,
+    cherries: 960,
+    dates: 400,
+  },
+  {
+    apples: 640,
+    bananas: 960,
+    cherries: 3640,
+    dates: 400,
+  },
+  {
+    apples: 3320,
+    bananas: 480,
+    cherries: 640,
+    dates: 400,
+  },
+];
+
 class SvgCharts extends React.Component {
   static navigationOptions = {
     title: 'SVG Charts'
@@ -129,7 +159,7 @@ class SvgCharts extends React.Component {
         ))
       ));
 
-    const PieChartLabels = ({ slices, height, width }: any) =>
+    const PieChartLabels = ({ slices }: any) =>
       slices.map(({ pieCentroid, data }: any, index: number) => (
         <SVGText
           key={index}
@@ -145,7 +175,10 @@ class SvgCharts extends React.Component {
           {data.amount}
         </SVGText>
       )
-    );
+      );
+
+    const colors = ['#8800cc', '#aa00ff', '#cc66ff', '#eeccff'];
+    const keys: KeyType[] = ['apples', 'bananas', 'cherries', 'dates'];
 
 
     return (
@@ -236,11 +269,21 @@ class SvgCharts extends React.Component {
             style={{ height: 260, flex: 1, alignSelf: "center" }}
             valueAccessor={({ item }: any) => item.amount}
             data={pieChartData}
-            spacing={0}
             outerRadius={'95%'}
           >
             <PieChartLabels />
           </PieChart>
+        </View>
+        <View style={styles.title}><Text style={styles.text}>Stacked Bar Chart</Text></View>
+        <View style={styles.graphStyle}>
+          <StackedAreaChart
+            style={{ height: 260, flex: 1, alignSelf: "center" }}
+            data={stackedBarData}
+            keys={keys}
+            colors={colors}
+            curve={shape.curveNatural}
+            showGrid={false}
+          />
         </View>
       </ScrollView>
     );
