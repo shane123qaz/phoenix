@@ -1,10 +1,10 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
-import { Header } from "./components/Header";
-import { white, red } from "./config/color";
-import { SIZE } from "./config/size";
-import { List } from "./components/List";
-import { INavigation } from "./types";
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
+import {Header} from './components/Header';
+import {white, red} from './config/color';
+import {SIZE} from './config/size';
+import {List} from './components/List';
+import {INavigation} from './types';
 
 type Props = INavigation;
 
@@ -15,13 +15,31 @@ class Home extends React.Component<Props> {
 
   public render() {
     const list = [
-      { id: "1", name: "flight", handlePress: () => { this.props.navigation.navigate("Flight") } },
-      { id: "2", name: "reboot", handlePress: () => { } },
+      {
+        id: '1',
+        name: 'flight',
+        handlePress: () => {
+          this.props.navigation.navigate('Flight');
+        },
+      },
+      {id: '2', name: 'reboot', handlePress: () => {}},
     ];
 
     const chartList = [
-      { id: "1", name: "chartKitCharts", handlePress: () => { this.props.navigation.navigate("ChartKitCharts") } },
-      { id: "2", name: "svgCharts", handlePress: () => { this.props.navigation.navigate("SvgCharts") } }
+      {
+        id: '1',
+        name: 'chartKitCharts',
+        handlePress: () => {
+          this.props.navigation.navigate('ChartKitCharts');
+        },
+      },
+      {
+        id: '2',
+        name: 'svgCharts',
+        handlePress: () => {
+          this.props.navigation.navigate('SvgCharts');
+        },
+      },
     ];
 
     return (
@@ -45,12 +63,12 @@ class Home extends React.Component<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
     height: SIZE.MAX_HEIGHT,
   },
   header: {
-    height: "10%",
+    height: '10%',
     backgroundColor: red,
     borderWidth: 1,
     borderColor: white,
@@ -60,7 +78,7 @@ const styles = StyleSheet.create({
   content: {
     marginTop: 10,
     paddingLeft: 20,
-  }
+  },
 });
 
 export default Home;
