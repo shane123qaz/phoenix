@@ -1,6 +1,6 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { white } from "../config/color";
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import {white} from '../config/color';
 
 interface IHeader {
   title: string;
@@ -19,13 +19,13 @@ export class Header extends React.Component<IHeader> {
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   title: {
     fontSize: 30,
     color: white,
-  }
+  },
 });

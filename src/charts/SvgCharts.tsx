@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import React from 'react';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {
   BarChart,
   LineChart,
@@ -7,14 +7,14 @@ import {
   ProgressCircle,
   StackedAreaChart,
   XAxis,
-  YAxis
-} from "react-native-svg-charts";
-import { Circle, Line, Text as SVGText } from "react-native-svg";
-import { SIZE } from "../config/size";
-import { blue, lightPurpe } from "../config/color";
+  YAxis,
+} from 'react-native-svg-charts';
+import {Circle, Line, Text as SVGText} from 'react-native-svg';
+import {SIZE} from '../config/size';
+import {blue, lightPurpe} from '../config/color';
 import * as shape from 'd3-shape';
 
-type KeyType = 'apples' | 'bananas' | 'cherries' | 'dates'
+type KeyType = 'apples' | 'bananas' | 'cherries' | 'dates';
 
 const width = SIZE.MAX_WIDTH - 20;
 const lineChartData = [
@@ -23,7 +23,7 @@ const lineChartData = [
   Math.random() * 100,
   Math.random() * 100,
   Math.random() * 100,
-  Math.random() * 100
+  Math.random() * 100,
 ];
 
 const barData = [
@@ -34,11 +34,11 @@ const barData = [
       Math.random() * 100,
       Math.random() * 100,
       Math.random() * 100,
-      Math.random() * 100
+      Math.random() * 100,
     ],
     svg: {
       fill: blue,
-    }
+    },
   },
   {
     data: [
@@ -47,10 +47,10 @@ const barData = [
       Math.random() * 100,
       Math.random() * 100,
       Math.random() * 100,
-      Math.random() * 100
-    ]
-  }
-]
+      Math.random() * 100,
+    ],
+  },
+];
 
 const progressChartData = 90;
 
@@ -58,29 +58,29 @@ const pieChartData = [
   {
     key: 1,
     amount: 50,
-    svg: { fill: '#600080' },
+    svg: {fill: '#600080'},
   },
   {
     key: 2,
     amount: 50,
-    svg: { fill: '#9900cc' }
+    svg: {fill: '#9900cc'},
   },
   {
     key: 3,
     amount: 40,
-    svg: { fill: '#c61aff' }
+    svg: {fill: '#c61aff'},
   },
   {
     key: 4,
     amount: 95,
-    svg: { fill: '#d966ff' }
+    svg: {fill: '#d966ff'},
   },
   {
     key: 5,
     amount: 35,
-    svg: { fill: '#ecb3ff' }
-  }
-]
+    svg: {fill: '#ecb3ff'},
+  },
+];
 
 const stackedBarData = [
   {
@@ -111,24 +111,25 @@ const stackedBarData = [
 
 class SvgCharts extends React.Component {
   static navigationOptions = {
-    title: 'SVG Charts'
+    title: 'SVG Charts',
   };
 
   public render() {
-    const contentInset = { top: 10, bottom: 10, left: 10, right: 10 };
-    const axesSvg = { fontSize: 10, fill: "white" };
-    const Decorator = ({ x, y, data }: any) => data.map((value: any, index: any) => (
-      <Circle
-        key={index}
-        cx={x(index)}
-        cy={y(value)}
-        r={4}
-        stroke={lightPurpe}
-        fill={'white'}
-      />
-    ));
+    const contentInset = {top: 10, bottom: 10, left: 10, right: 10};
+    const axesSvg = {fontSize: 10, fill: 'white'};
+    const Decorator = ({x, y, data}: any) =>
+      data.map((value: any, index: any) => (
+        <Circle
+          key={index}
+          cx={x(index)}
+          cy={y(value)}
+          r={4}
+          stroke={lightPurpe}
+          fill={'white'}
+        />
+      ));
 
-    const HorizontalLine = (({ x, y }: any) => (
+    const HorizontalLine = ({x, y}: any) => (
       <Line
         key={'sixty-axis'}
         x1={0}
@@ -139,28 +140,31 @@ class SvgCharts extends React.Component {
         strokeDasharray={[4, 8]}
         strokeWidth={2}
       />
-    ));
+    );
 
     const CUT_OFF = 10;
-    const Labels = ({ x, y, bandwidth, data }: any) => (
+    const Labels = ({x, y, bandwidth, data}: any) =>
       data.map((dataset: any, i: number) =>
         dataset.data.map((value: number, index: number) => (
           <SVGText
             key={index}
-            x={i % 2 === 0 ? x(index) + bandwidth / 4 : x(index) + bandwidth * 3 / 4}
+            x={
+              i % 2 === 0
+                ? x(index) + bandwidth / 4
+                : x(index) + (bandwidth * 3) / 4
+            }
             y={value < CUT_OFF ? y(value) - 10 : y(value) + 10}
             fontSize={14}
             fill={'white'}
             alignmentBaseline={'middle'}
-            textAnchor={'middle'}
-          >
+            textAnchor={'middle'}>
             {value.toFixed(0)}
           </SVGText>
-        ))
-      ));
+        )),
+      );
 
-    const PieChartLabels = ({ slices }: any) =>
-      slices.map(({ pieCentroid, data }: any, index: number) => (
+    const PieChartLabels = ({slices}: any) =>
+      slices.map(({pieCentroid, data}: any, index: number) => (
         <SVGText
           key={index}
           x={pieCentroid[0]}
@@ -170,40 +174,38 @@ class SvgCharts extends React.Component {
           alignmentBaseline={'middle'}
           fontSize={24}
           stroke={'black'}
-          strokeWidth={0.2}
-        >
+          strokeWidth={0.2}>
           {data.amount}
         </SVGText>
-      )
-      );
+      ));
 
     const colors = ['#8800cc', '#aa00ff', '#cc66ff', '#eeccff'];
     const keys: KeyType[] = ['apples', 'bananas', 'cherries', 'dates'];
 
-
     return (
       <ScrollView>
-        <View style={styles.title}><Text style={styles.text}>Line Chart</Text></View>
+        <View style={styles.title}>
+          <Text style={styles.text}>Line Chart</Text>
+        </View>
         <View style={styles.graphStyle}>
           <YAxis
             data={lineChartData}
-            style={{ marginBottom: 10 }}
+            style={{marginBottom: 10}}
             contentInset={contentInset}
             svg={axesSvg}
             formatLabel={(value: number) => `$${value}`}
           />
-          <View style={{ flex: 1, marginLeft: 10 }}>
+          <View style={{flex: 1, marginLeft: 10}}>
             <LineChart
-              style={{ height: 260 }}
+              style={{height: 260}}
               data={lineChartData}
-              svg={{ stroke: lightPurpe }}
-              contentInset={contentInset}
-            >
+              svg={{stroke: lightPurpe}}
+              contentInset={contentInset}>
               <HorizontalLine />
               <Decorator />
             </LineChart>
             <XAxis
-              style={{ height: 10 }}
+              style={{height: 10}}
               data={lineChartData}
               formatLabel={(_: any, index: number) => index}
               contentInset={contentInset}
@@ -211,29 +213,30 @@ class SvgCharts extends React.Component {
             />
           </View>
         </View>
-        <View style={styles.title}><Text style={styles.text}>Bar Chart</Text></View>
+        <View style={styles.title}>
+          <Text style={styles.text}>Bar Chart</Text>
+        </View>
         <View style={styles.graphStyle}>
           <YAxis
             data={lineChartData}
-            style={{ marginBottom: 10 }}
+            style={{marginBottom: 10}}
             contentInset={contentInset}
             svg={axesSvg}
             formatLabel={(value: number) => `$${value}`}
           />
-          <View style={{ flex: 1, marginLeft: 10 }}>
+          <View style={{flex: 1, marginLeft: 10}}>
             <BarChart
-              style={{ height: 260, flex: 1 }}
+              style={{height: 260, flex: 1}}
               data={barData}
-              svg={{ fill: lightPurpe }}
+              svg={{fill: lightPurpe}}
               contentInset={contentInset}
               spacingInner={0.2}
               spacingOuter={0}
-              gridMin={0}
-            >
+              gridMin={0}>
               <Labels />
             </BarChart>
             <XAxis
-              style={{ height: 10 }}
+              style={{height: 10}}
               data={lineChartData}
               formatLabel={(_: any, index: number) => index}
               contentInset={contentInset}
@@ -241,43 +244,46 @@ class SvgCharts extends React.Component {
             />
           </View>
         </View>
-        <View style={styles.title}><Text style={styles.text}>Progress Chart</Text></View>
+        <View style={styles.title}>
+          <Text style={styles.text}>Progress Chart</Text>
+        </View>
         <View style={styles.graphStyle}>
           <ProgressCircle
-            style={{ height: 260, flex: 1, alignSelf: "center" }}
+            style={{height: 260, flex: 1, alignSelf: 'center'}}
             progress={progressChartData / 100}
             progressColor={lightPurpe}
             startAngle={-Math.PI * 0}
-            endAngle={2 * Math.PI * 1}
-          >
+            endAngle={2 * Math.PI * 1}>
             <SVGText
-              key={"progress-key"}
+              key={'progress-key'}
               x={0}
               y={0}
               fontSize={20}
               fill={'white'}
               alignmentBaseline={'middle'}
-              textAnchor={'middle'}
-            >
+              textAnchor={'middle'}>
               {progressChartData}
             </SVGText>
           </ProgressCircle>
         </View>
-        <View style={styles.title}><Text style={styles.text}>Pie Chart</Text></View>
+        <View style={styles.title}>
+          <Text style={styles.text}>Pie Chart</Text>
+        </View>
         <View style={styles.graphStyle}>
           <PieChart
-            style={{ height: 260, flex: 1, alignSelf: "center" }}
-            valueAccessor={({ item }: any) => item.amount}
+            style={{height: 260, flex: 1, alignSelf: 'center'}}
+            valueAccessor={({item}: any) => item.amount}
             data={pieChartData}
-            outerRadius={'95%'}
-          >
+            outerRadius={'95%'}>
             <PieChartLabels />
           </PieChart>
         </View>
-        <View style={styles.title}><Text style={styles.text}>Stacked Bar Chart</Text></View>
+        <View style={styles.title}>
+          <Text style={styles.text}>Stacked Bar Chart</Text>
+        </View>
         <View style={styles.graphStyle}>
           <StackedAreaChart
-            style={{ height: 260, flex: 1, alignSelf: "center" }}
+            style={{height: 260, flex: 1, alignSelf: 'center'}}
             data={stackedBarData}
             keys={keys}
             colors={colors}
@@ -299,16 +305,16 @@ const styles = StyleSheet.create({
     height: 280,
     padding: 5,
     flexDirection: 'row',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   title: {
     height: 44,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   text: {
-    fontSize: 20
-  }
+    fontSize: 20,
+  },
 });
 
 export default SvgCharts;
