@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, Text, StyleSheet, View} from 'react-native';
+import { FlatList, Text, StyleSheet, View } from 'react-native';
 
 interface IItem {
   id: string;
@@ -12,7 +12,7 @@ interface IList {
 }
 
 export class List extends React.Component<IList> {
-  private renderItem = ({item}: {item: IItem}) => (
+  private renderItem = ({ item }: { item: IItem }) => (
     <View style={styles.container}>
       <Text style={styles.content} onPress={item.handlePress}>
         * {item.name}
@@ -21,7 +21,7 @@ export class List extends React.Component<IList> {
   );
 
   public render() {
-    const {data} = this.props;
+    const { data } = this.props;
     return (
       <FlatList
         data={data}

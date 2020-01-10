@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import {
   BarChart,
   LineChart,
@@ -9,10 +9,10 @@ import {
   XAxis,
   YAxis,
 } from 'react-native-svg-charts';
-import {Circle, Line, Text as SVGText} from 'react-native-svg';
-import {SIZE} from '../config/size';
-import {blue, lightPurpe} from '../config/color';
+import { Circle, Line, Text as SVGText } from 'react-native-svg';
 import * as shape from 'd3-shape';
+import { SIZE } from '../config/size';
+import { blue, lightPurpe } from '../config/color';
 
 type KeyType = 'apples' | 'bananas' | 'cherries' | 'dates';
 
@@ -58,27 +58,27 @@ const pieChartData = [
   {
     key: 1,
     amount: 50,
-    svg: {fill: '#600080'},
+    svg: { fill: '#600080' },
   },
   {
     key: 2,
     amount: 50,
-    svg: {fill: '#9900cc'},
+    svg: { fill: '#9900cc' },
   },
   {
     key: 3,
     amount: 40,
-    svg: {fill: '#c61aff'},
+    svg: { fill: '#c61aff' },
   },
   {
     key: 4,
     amount: 95,
-    svg: {fill: '#d966ff'},
+    svg: { fill: '#d966ff' },
   },
   {
     key: 5,
     amount: 35,
-    svg: {fill: '#ecb3ff'},
+    svg: { fill: '#ecb3ff' },
   },
 ];
 
@@ -115,9 +115,9 @@ class SvgCharts extends React.Component {
   };
 
   public render() {
-    const contentInset = {top: 10, bottom: 10, left: 10, right: 10};
-    const axesSvg = {fontSize: 10, fill: 'white'};
-    const Decorator = ({x, y, data}: any) =>
+    const contentInset = { top: 10, bottom: 10, left: 10, right: 10 };
+    const axesSvg = { fontSize: 10, fill: 'white' };
+    const Decorator = ({ x, y, data }: any) =>
       data.map((value: any, index: any) => (
         <Circle
           key={index}
@@ -129,7 +129,7 @@ class SvgCharts extends React.Component {
         />
       ));
 
-    const HorizontalLine = ({x, y}: any) => (
+    const HorizontalLine = ({ x, y }: any) => (
       <Line
         key={'sixty-axis'}
         x1={0}
@@ -143,7 +143,7 @@ class SvgCharts extends React.Component {
     );
 
     const CUT_OFF = 10;
-    const Labels = ({x, y, bandwidth, data}: any) =>
+    const Labels = ({ x, y, bandwidth, data }: any) =>
       data.map((dataset: any, i: number) =>
         dataset.data.map((value: number, index: number) => (
           <SVGText
@@ -163,8 +163,8 @@ class SvgCharts extends React.Component {
         )),
       );
 
-    const PieChartLabels = ({slices}: any) =>
-      slices.map(({pieCentroid, data}: any, index: number) => (
+    const PieChartLabels = ({ slices }: any) =>
+      slices.map(({ pieCentroid, data }: any, index: number) => (
         <SVGText
           key={index}
           x={pieCentroid[0]}
@@ -190,22 +190,22 @@ class SvgCharts extends React.Component {
         <View style={styles.graphStyle}>
           <YAxis
             data={lineChartData}
-            style={{marginBottom: 10}}
+            style={styles.yAxis}
             contentInset={contentInset}
             svg={axesSvg}
             formatLabel={(value: number) => `$${value}`}
           />
-          <View style={{flex: 1, marginLeft: 10}}>
+          <View style={styles.chart}>
             <LineChart
-              style={{height: 260}}
+              style={styles.chartHeight}
               data={lineChartData}
-              svg={{stroke: lightPurpe}}
+              svg={{ stroke: lightPurpe }}
               contentInset={contentInset}>
               <HorizontalLine />
               <Decorator />
             </LineChart>
             <XAxis
-              style={{height: 10}}
+              style={styles.xAxis}
               data={lineChartData}
               formatLabel={(_: any, index: number) => index}
               contentInset={contentInset}
@@ -219,16 +219,16 @@ class SvgCharts extends React.Component {
         <View style={styles.graphStyle}>
           <YAxis
             data={lineChartData}
-            style={{marginBottom: 10}}
+            style={styles.yAxis}
             contentInset={contentInset}
             svg={axesSvg}
             formatLabel={(value: number) => `$${value}`}
           />
-          <View style={{flex: 1, marginLeft: 10}}>
+          <View style={styles.chart}>
             <BarChart
-              style={{height: 260, flex: 1}}
+              style={styles.chartHeight}
               data={barData}
-              svg={{fill: lightPurpe}}
+              svg={{ fill: lightPurpe }}
               contentInset={contentInset}
               spacingInner={0.2}
               spacingOuter={0}
@@ -236,7 +236,7 @@ class SvgCharts extends React.Component {
               <Labels />
             </BarChart>
             <XAxis
-              style={{height: 10}}
+              style={styles.xAxis}
               data={lineChartData}
               formatLabel={(_: any, index: number) => index}
               contentInset={contentInset}
@@ -249,7 +249,7 @@ class SvgCharts extends React.Component {
         </View>
         <View style={styles.graphStyle}>
           <ProgressCircle
-            style={{height: 260, flex: 1, alignSelf: 'center'}}
+            style={styles.chart}
             progress={progressChartData / 100}
             progressColor={lightPurpe}
             startAngle={-Math.PI * 0}
@@ -271,8 +271,8 @@ class SvgCharts extends React.Component {
         </View>
         <View style={styles.graphStyle}>
           <PieChart
-            style={{height: 260, flex: 1, alignSelf: 'center'}}
-            valueAccessor={({item}: any) => item.amount}
+            style={styles.chart}
+            valueAccessor={({ item }: any) => item.amount}
             data={pieChartData}
             outerRadius={'95%'}>
             <PieChartLabels />
@@ -283,7 +283,7 @@ class SvgCharts extends React.Component {
         </View>
         <View style={styles.graphStyle}>
           <StackedAreaChart
-            style={{height: 260, flex: 1, alignSelf: 'center'}}
+            style={styles.chart}
             data={stackedBarData}
             keys={keys}
             colors={colors}
@@ -315,6 +315,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
   },
+  chart: {
+    height: 260,
+    flex: 1,
+    alignSelf: 'center',
+  },
+  chartHeight: { height: 260 },
+  yAxis: { marginBottom: 10 },
+  xAxis: { height: 10 },
 });
 
 export default SvgCharts;

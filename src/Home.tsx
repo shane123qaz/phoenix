@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Header} from './components/Header';
-import {white, red} from './config/color';
-import {SIZE} from './config/size';
-import {List} from './components/List';
-import {INavigation} from './types';
+import { View, StyleSheet } from 'react-native';
+import { Header } from './components/Header';
+import { white, red } from './config/color';
+import { SIZE } from './config/size';
+import { List } from './components/List';
+import { INavigation } from './types';
 
 type Props = INavigation;
 
@@ -22,7 +22,7 @@ class Home extends React.Component<Props> {
           this.props.navigation.navigate('Flight');
         },
       },
-      {id: '2', name: 'reboot', handlePress: () => {}},
+      { id: '2', name: 'reboot', handlePress: () => {} },
     ];
 
     const chartList = [

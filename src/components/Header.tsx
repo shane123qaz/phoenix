@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {white} from '../config/color';
+import { View, Text, StyleSheet } from 'react-native';
+import { white } from '../config/color';
 
 interface IHeader {
   title: string;
@@ -8,7 +8,7 @@ interface IHeader {
 
 export class Header extends React.Component<IHeader> {
   public render() {
-    const {title} = this.props;
+    const { title } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.title}>{title}</Text>

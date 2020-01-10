@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import {
   BarChart,
   LineChart,
@@ -7,7 +7,7 @@ import {
   ProgressChart,
   StackedBarChart,
 } from 'react-native-chart-kit';
-import {SIZE} from '../config/size';
+import { SIZE } from '../config/size';
 import {
   chartData,
   progressChartData,
