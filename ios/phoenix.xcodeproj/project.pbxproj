@@ -59,6 +59,8 @@
 		5DD5EC242CBD6E60F0B5B8E1 /* libPods-phoenix-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-phoenix-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F240F2423C85F98005AB33E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F46DA3623CEE07600AF94D5 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		6F46DA3823CEE74E00AF94D5 /* phoenix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = phoenix.entitlements; path = phoenix/phoenix.entitlements; sourceTree = "<group>"; };
+		6F46DA3923CEF86100AF94D5 /* phoenix-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "phoenix-Bridging-Header.h"; sourceTree = "<group>"; };
 		7964E22E23643C7AB18289CE /* Pods-phoenix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phoenix.debug.xcconfig"; path = "Target Support Files/Pods-phoenix/Pods-phoenix.debug.xcconfig"; sourceTree = "<group>"; };
 		90AFB9B3F3318C0DC2B1F182 /* Pods-phoenix-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phoenix-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-phoenix-tvOS/Pods-phoenix-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A17418E3B3F03CF0676F74DF /* libPods-phoenixTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-phoenixTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 		13B07FAE1A68108700A75B9A /* phoenix */ = {
 			isa = PBXGroup;
 			children = (
+				6F46DA3823CEE74E00AF94D5 /* phoenix.entitlements */,
 				6F46DA3623CEE07600AF94D5 /* main.jsbundle */,
 				6F240F2423C85F98005AB33E /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -136,6 +139,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				6F46DA3923CEF86100AF94D5 /* phoenix-Bridging-Header.h */,
 			);
 			name = phoenix;
 			sourceTree = "<group>";
@@ -300,6 +304,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = HCJYR6E25B;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -661,6 +666,8 @@
 			baseConfigurationReference = 7964E22E23643C7AB18289CE /* Pods-phoenix.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = phoenix/phoenix.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -676,6 +683,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.zx617.phoenix;
 				PRODUCT_NAME = phoenix;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "phoenix-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -685,6 +695,8 @@
 			baseConfigurationReference = B2FC3CD3E02FD62C4A871FA6 /* Pods-phoenix.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = phoenix/phoenix.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -699,6 +711,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.zx617.phoenix;
 				PRODUCT_NAME = phoenix;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "phoenix-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
