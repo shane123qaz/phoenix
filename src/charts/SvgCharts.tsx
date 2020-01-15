@@ -13,6 +13,7 @@ import { Circle, Line, Text as SVGText } from 'react-native-svg';
 import * as shape from 'd3-shape';
 import { SIZE } from '../config/size';
 import { blue, lightPurpe } from '../config/color';
+import { trackScreenView } from '../utils/analyticsUtils';
 
 type KeyType = 'apples' | 'bananas' | 'cherries' | 'dates';
 
@@ -113,6 +114,10 @@ class SvgCharts extends React.Component {
   static navigationOptions = {
     title: 'SVG Charts',
   };
+
+  public componentDidMount() {
+    trackScreenView('SVGChartsScreen');
+  }
 
   public render() {
     const contentInset = { top: 10, bottom: 10, left: 10, right: 10 };

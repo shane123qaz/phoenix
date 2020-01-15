@@ -5,6 +5,7 @@ import { white, red } from './config/color';
 import { SIZE } from './config/size';
 import { List } from './components/List';
 import { INavigation } from './types';
+import { trackScreenView } from './utils/analyticsUtils';
 
 type Props = INavigation;
 
@@ -12,6 +13,10 @@ class Home extends React.Component<Props> {
   static navigationOptions = {
     title: 'Home',
   };
+
+  public componentDidMount() {
+    trackScreenView('HomeScreen');
+  }
 
   public render() {
     const list = [

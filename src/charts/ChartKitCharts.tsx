@@ -14,6 +14,7 @@ import {
   pieChartData,
   stackedBarData,
 } from './CharKitData';
+import { trackScreenView } from '../utils/analyticsUtils';
 
 const width = SIZE.MAX_WIDTH - 20;
 const chartConfig = {
@@ -39,6 +40,10 @@ class ChartKitCharts extends React.Component {
   static navigationOptions = {
     title: 'Chart Kit Charts',
   };
+
+  public componentDidMount() {
+    trackScreenView('ChartKitScreen');
+  }
 
   public render() {
     return (
