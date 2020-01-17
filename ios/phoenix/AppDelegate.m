@@ -14,7 +14,7 @@
 @import Firebase;
 @import UserNotifications;
 
-@interface AppDelegate () <UNUserNotificationCenterDelegate>
+@interface AppDelegate () <UNUserNotificationCenterDelegate, FIRMessagingDelegate>
 @end
 
 @implementation AppDelegate
@@ -35,9 +35,8 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-  if ([FIRApp defaultApp] == nil) {
-       [FIRApp configure];
-  }
+
+  [FIRApp configure];
 
   [FIRMessaging messaging].delegate = self;
 
@@ -52,13 +51,6 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
         completionHandler:^(BOOL granted, NSError * _Nullable error) {
           // ...
         }];
-  } else {
-    // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
-    UIUserNotificationType allNotificationTypes =
-    (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
-    UIUserNotificationSettings *settings =
-    [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
-    [application registerUserNotificationSettings:settings];
   }
 
   [application registerForRemoteNotifications];
@@ -67,23 +59,6 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
 }
 
 // [START receive_message]
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-  // If you are receiving a notification message while your app is in the background,
-  // this callback will not be fired till the user taps on the notification launching the application.
-  // TODO: Handle data of notification
-
-  // With swizzling disabled you must let Messaging know about the message, for Analytics
-  // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
-
-  // Print message ID.
-  if (userInfo[kGCMMessageIDKey]) {
-    NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
-  }
-
-  // Print full message.
-  NSLog(@"%@", userInfo);
-}
-
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
     fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
   // If you are receiving a notification message while your app is in the background,
