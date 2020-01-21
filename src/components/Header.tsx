@@ -10,7 +10,7 @@ export class Header extends React.Component<IHeader> {
   public render() {
     const { title } = this.props;
     return (
-      <View style={styles.container}>
+      <View style={styles.container} testID="header">
         <Text style={styles.title}>{title}</Text>
       </View>
     );

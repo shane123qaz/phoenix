@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render header correctly 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+          "height": "100%",
+        }
+      }
+      testID="header"
+    >
+      <Text
+        style={
+          Object {
+            "color": "#fff",
+            "fontSize": 30,
+          }
+        }
+      >
+        hah
+      </Text>
+    </View>
+  </View>
+</View>
+`;
