@@ -1,18 +1,22 @@
 import React from 'react';
-import { ImageBackground, Text, StyleSheet, View, Image } from 'react-native';
+import {
+  ImageBackground,
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import { onProductView } from '../utils/analyticsUtils';
 import { lightPurpe } from 'src/config/color';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const bookrack = require('../../assets/bookrack.jpg');
 const books = [
-  { uri: 'https://facebook.github.io/react-native/img/tiny_logo.png' },
-  { uri: 'https://facebook.github.io/react-native/img/tiny_logo.png' },
-  { uri: 'https://facebook.github.io/react-native/img/tiny_logo.png' },
-  { uri: 'https://facebook.github.io/react-native/img/tiny_logo.png' },
-  { uri: 'https://facebook.github.io/react-native/img/tiny_logo.png' },
-  { uri: 'https://facebook.github.io/react-native/img/tiny_logo.png' },
-  { uri: 'https://facebook.github.io/react-native/img/tiny_logo.png' },
+  {
+    imageUri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
+    linkUri: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/',
+  },
 ];
 
 class Book extends React.Component {
@@ -24,8 +28,8 @@ class Book extends React.Component {
     onProductView();
   }
 
-  private chooseBook() {
-    console.log('**********');
+  private chooseBook(uri: string) {
+    console.log(uri);
   }
 
   public render() {
@@ -35,11 +39,11 @@ class Book extends React.Component {
           <Text style={styles.title}>我的书架</Text>
           <View style={styles.books}>
             {books.map((book, index) => (
-              <Image
+              <TouchableOpacity
                 key={index}
-                source={{ uri: book.uri }}
-                style={styles.book}
-              />
+                onPress={() => this.chooseBook(book.linkUri)}>
+                <Image source={{ uri: book.imageUri }} style={styles.book} />
+              </TouchableOpacity>
             ))}
           </View>
         </View>
