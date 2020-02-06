@@ -11,6 +11,7 @@ import Book from './src/book';
 import ChartKitCharts from './src/charts/ChartKitCharts';
 import SvgCharts from './src/charts/SvgCharts';
 import { white, blue } from './src/config/color';
+import BookWebView from './src/book/BookWebView';
 
 const AppNavigator = createStackNavigator(
   {
@@ -19,6 +20,9 @@ const AppNavigator = createStackNavigator(
     },
     Book: {
       screen: Book,
+    },
+    BookWebView: {
+      screen: BookWebView,
     },
     ChartKitCharts: {
       screen: ChartKitCharts,

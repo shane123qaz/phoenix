@@ -19,6 +19,7 @@
 		6F240F2523C85F98005AB33E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F240F2423C85F98005AB33E /* GoogleService-Info.plist */; };
 		6F46DA3723CEE07600AF94D5 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F46DA3623CEE07600AF94D5 /* main.jsbundle */; };
 		8C7F5173D690F39BB357F21A /* libPods-phoenix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F09A01A310B5E3739407D32E /* libPods-phoenix.a */; };
+		AD43EFAD23EC091700AC01EC /* libreact-native-webview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD43EFAC23EC091700AC01EC /* libreact-native-webview.a */; };
 		BBED10E1EBD4DC6F825CF968 /* libPods-phoenix-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B547B875C6FA31874656E717 /* libPods-phoenix-tvOSTests.a */; };
 		F8EF822820DF847174996BE8 /* libPods-phoenixTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A17418E3B3F03CF0676F74DF /* libPods-phoenixTests.a */; };
 		F94BD0CA5DFB7CDDE754BD3C /* libPods-phoenix-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DD5EC242CBD6E60F0B5B8E1 /* libPods-phoenix-tvOS.a */; };
@@ -64,6 +65,7 @@
 		7964E22E23643C7AB18289CE /* Pods-phoenix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phoenix.debug.xcconfig"; path = "Target Support Files/Pods-phoenix/Pods-phoenix.debug.xcconfig"; sourceTree = "<group>"; };
 		90AFB9B3F3318C0DC2B1F182 /* Pods-phoenix-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phoenix-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-phoenix-tvOS/Pods-phoenix-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A17418E3B3F03CF0676F74DF /* libPods-phoenixTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-phoenixTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD43EFAC23EC091700AC01EC /* libreact-native-webview.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-webview.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FC3CD3E02FD62C4A871FA6 /* Pods-phoenix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phoenix.release.xcconfig"; path = "Target Support Files/Pods-phoenix/Pods-phoenix.release.xcconfig"; sourceTree = "<group>"; };
 		B547B875C6FA31874656E717 /* libPods-phoenix-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-phoenix-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B854ABABCD089AE4DE08FB87 /* Pods-phoenixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phoenixTests.release.xcconfig"; path = "Target Support Files/Pods-phoenixTests/Pods-phoenixTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD43EFAD23EC091700AC01EC /* libreact-native-webview.a in Frameworks */,
 				8C7F5173D690F39BB357F21A /* libPods-phoenix.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +150,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD43EFAC23EC091700AC01EC /* libreact-native-webview.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				F09A01A310B5E3739407D32E /* libPods-phoenix.a */,

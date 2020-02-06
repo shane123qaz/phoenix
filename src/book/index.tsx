@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { onProductView } from '../utils/analyticsUtils';
 import { lightPurpe } from 'src/config/color';
+import { INavigation } from '../types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const bookrack = require('../../assets/bookrack.jpg');
@@ -19,7 +20,9 @@ const books = [
   },
 ];
 
-class Book extends React.Component {
+type IProps = INavigation;
+
+class Book extends React.Component<IProps> {
   static navigationOptions = {
     title: 'Book',
   };
@@ -29,7 +32,7 @@ class Book extends React.Component {
   }
 
   private chooseBook(uri: string) {
-    console.log(uri);
+    this.props.navigation.navigate('BookWebView', { uri });
   }
 
   public render() {
