@@ -7,7 +7,7 @@ import { name as appName } from './app.json';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Home from './src/Home';
-import Flight from './src/Flight';
+import Book from './src/book';
 import ChartKitCharts from './src/charts/ChartKitCharts';
 import SvgCharts from './src/charts/SvgCharts';
 import { white, blue } from './src/config/color';
@@ -17,8 +17,8 @@ const AppNavigator = createStackNavigator(
     Home: {
       screen: Home,
     },
-    Flight: {
-      screen: Flight,
+    Book: {
+      screen: Book,
     },
     ChartKitCharts: {
       screen: ChartKitCharts,

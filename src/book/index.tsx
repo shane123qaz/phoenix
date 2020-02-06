@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { onProductView } from './utils/analyticsUtils';
+import { onProductView } from '../utils/analyticsUtils';
 
-class Flight extends React.Component {
+class Book extends React.Component {
   static navigationOptions = {
-    title: 'Flight',
+    title: 'Book',
   };
 
   public componentDidMount() {
@@ -14,10 +14,10 @@ class Flight extends React.Component {
   public render() {
     return (
       <View>
-        <Text>Hello Flight Page</Text>
+        <Text>Hello Book Page</Text>
       </View>
     );
   }
 }
 
-export default Flight;
+export default Book;

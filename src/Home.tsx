@@ -22,12 +22,12 @@ class Home extends React.Component<Props> {
     const list = [
       {
         id: '1',
-        name: 'flight',
+        name: 'book',
         handlePress: () => {
-          this.props.navigation.navigate('Flight');
+          this.props.navigation.navigate('Book');
         },
       },
-      { id: '2', name: 'reboot', handlePress: () => {} },
+      { id: '2', name: 'reboot', handlePress: () => { } },
     ];
 
     const chartList = [
