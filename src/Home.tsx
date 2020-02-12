@@ -21,28 +21,38 @@ class Home extends React.Component<Props> {
   public render() {
     const list = [
       {
-        id: '1',
+        id: '001',
         name: 'book',
         handlePress: () => {
           this.props.navigation.navigate('Book');
         },
       },
-      { id: '2', name: 'reboot', handlePress: () => { } },
+      { id: '002', name: 'reboot', handlePress: () => {} },
     ];
 
     const chartList = [
       {
-        id: '1',
+        id: '011',
         name: 'chartKitCharts',
         handlePress: () => {
           this.props.navigation.navigate('ChartKitCharts');
         },
       },
       {
-        id: '2',
+        id: '012',
         name: 'svgCharts',
         handlePress: () => {
           this.props.navigation.navigate('SvgCharts');
+        },
+      },
+    ];
+
+    const otherList = [
+      {
+        id: '101',
+        name: 'uploadImage',
+        handlePress: () => {
+          this.props.navigation.navigate('UploadImage');
         },
       },
     ];
@@ -60,6 +70,12 @@ class Home extends React.Component<Props> {
         </View>
         <View style={styles.content}>
           <List data={chartList} />
+        </View>
+        <View style={styles.header}>
+          <Header title="Other List" />
+        </View>
+        <View style={styles.content}>
+          <List data={otherList} />
         </View>
       </View>
     );

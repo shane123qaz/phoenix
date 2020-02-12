@@ -10,6 +10,7 @@ import Home from './src/Home';
 import Book from './src/book';
 import ChartKitCharts from './src/charts/ChartKitCharts';
 import SvgCharts from './src/charts/SvgCharts';
+import UploadImage from './src/pages/UploadImage';
 import { white, blue } from './src/config/color';
 import BookWebView from './src/book/BookWebView';
 
@@ -29,6 +30,9 @@ const AppNavigator = createStackNavigator(
     },
     SvgCharts: {
       screen: SvgCharts,
+    },
+    UploadImage: {
+      screen: UploadImage,
     },
   },
   {
