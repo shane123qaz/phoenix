@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Button, View, StyleSheet } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import { Header } from '../components/Header';
 import { SIZE } from '../config/size';
-import { white, red } from '../config/color';
+import { white, red, blue } from '../config/color';
 import { INavigation } from '../types';
 import { trackScreenView } from '../utils/analyticsUtils';
 
@@ -31,10 +31,12 @@ class UploadImage extends React.Component<Props> {
       <View style={styles.container}>
         <View style={styles.header}>
           <Header title="Game List" />
-          <TouchableOpacity onPress={this.pickMultiple}>
-            <Text>Select Images</Text>
-          </TouchableOpacity>
         </View>
+        <Button
+          color={blue}
+          title="Select Mutiple Pictures"
+          onPress={this.pickMultiple}
+        />
       </View>
     );
   }
