@@ -1,4 +1,4 @@
-package com.phoenix;
+package org.zx617.phoenix;
 
 import android.app.Application;
 import android.content.Context;
@@ -30,7 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected String getJSMainModuleName() {
-          return "index";
+          return "App";
         }
       };
 

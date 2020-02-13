@@ -1,4 +1,4 @@
-package com.phoenix;
+package org.zx617.phoenix;
 
 import com.facebook.react.ReactActivity;
 

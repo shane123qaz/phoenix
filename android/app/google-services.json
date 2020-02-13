@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "759231170144",
+    "firebase_url": "https://phoenix-rn.firebaseio.com",
+    "project_id": "phoenix-rn",
+    "storage_bucket": "phoenix-rn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759231170144:android:e40be1fb67c252bb8f6505",
+        "android_client_info": {
+          "package_name": "org.zx617.phoenix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "759231170144-4nnh1mjms5i3v2r89crjj1bc5uqc3f0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDGOrS05s5NzlQY87owFuAQJ3FFxr45g8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "759231170144-4nnh1mjms5i3v2r89crjj1bc5uqc3f0p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "759231170144-i2m476ukeae0k94tghcgmalgfhqdbqfc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.zx617.phoenix"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
