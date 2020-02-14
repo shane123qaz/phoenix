@@ -13,6 +13,7 @@ import SvgCharts from './src/charts/SvgCharts';
 import UploadImage from './src/pages/UploadImage';
 import { white, blue } from './src/config/color';
 import BookWebView from './src/book/BookWebView';
+import { Cards } from './src/cards/index';
 
 const AppNavigator = createStackNavigator(
   {
@@ -24,6 +25,9 @@ const AppNavigator = createStackNavigator(
     },
     BookWebView: {
       screen: BookWebView,
+    },
+    Cards: {
+      screen: Cards,
     },
     ChartKitCharts: {
       screen: ChartKitCharts,

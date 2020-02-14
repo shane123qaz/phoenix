@@ -27,7 +27,13 @@ class Home extends React.Component<Props> {
           this.props.navigation.navigate('Book');
         },
       },
-      { id: '002', name: 'reboot', handlePress: () => {} },
+      {
+        id: '002',
+        name: 'cards',
+        handlePress: () => {
+          this.props.navigation.navigate('Cards');
+        },
+      },
     ];
 
     const chartList = [
